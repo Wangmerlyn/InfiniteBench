@@ -1,0 +1,12 @@
+openai
+tiktoken
+# rouge==1.16.0
+torch==2.1.2
+rouge
+transformers==4.44.0
+flash-attn==2.5.6
+accelerate
+evaluate==0.4.1
+# gzip
+xopen
+jieba
