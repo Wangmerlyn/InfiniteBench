@@ -143,7 +143,7 @@ The available tasks are:
 
 | Task Name        | Argument to specify in `--task` |
 | ---------------- | ------------------------------- |
-| En.Sum           | longbook_sum_qa                 |
+| En.Sum           | longbook_sum_eng                |
 | En.QA            | longbook_qa_eng                 |
 | En.MC            | longbook_choice_eng             |
 | En.Dia           | longdialogue_qa_eng             |
