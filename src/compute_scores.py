@@ -185,7 +185,6 @@ def get_score_one_code_debug(pred, label, model_name: str) -> bool:
     match = re.search(pattern, pred)
     if match:
         pred = match.group(0)
-        print(f"re: {pred}, {label_c}")
         if pred == label_c:
             return True
     ans_prefixes = [
@@ -425,7 +424,7 @@ ALL_TASKS = [
     "longbook_qa_eng",
     "longbook_qa_chn",
     "math_find",
-    "math_calc",
+    # "math_calc",
     "code_run",
     "code_debug",
 ]
