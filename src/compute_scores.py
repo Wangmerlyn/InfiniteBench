@@ -184,8 +184,8 @@ def get_score_one_code_debug(pred, label, model_name: str) -> bool:
     pattern = r"\b[A-J]\b(?!.*\b[A-J]\b)"
     match = re.search(pattern, pred)
     if match:
-        pred = match.group(0)
-        if pred == label_c:
+        extracted_pred = match.group(0)
+        if extracted_pred == label_c:
             return True
     ans_prefixes = [
         "answer is:",
@@ -251,6 +251,13 @@ def get_score_one_longdialogue_qa_eng(pred, label, model_name: str) -> bool:
 def get_score_one_longbook_choice_eng(pred, label, model_name: str) -> bool:
     # Just use the first letter as the prediction
     pred = pred.strip()
+    pattern = r"\b[A-D]\b(?!.*\b[A-D]\b)"
+
+    match = re.search(pattern, pred)
+    if match:
+        extracted_pred = match.group(0)
+        if extracted_pred in label:
+            return True
     if pred == "":
         return False
     if pred[0] in "ABCD":
