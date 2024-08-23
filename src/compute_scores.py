@@ -181,9 +181,12 @@ def get_score_one_code_debug(pred, label, model_name: str) -> bool:
     pred = pred.strip()
     label_c = label[1]
     fn_name = label[0]
-    if pred[:2] in [f"{label_c}.", f"{label_c}:"]:
-        return True
-
+    pattern = r"\b[A-J]\b(?!.*\b[A-J]\b)"
+    match = re.search(pattern, pred)
+    if match:
+        pred = match.group(0)
+        if pred == label_c:
+            return True
     ans_prefixes = [
         "answer is:",
         # "answer is",
@@ -197,6 +200,8 @@ def get_score_one_code_debug(pred, label, model_name: str) -> bool:
         pred = pred.replace(c, " ")
     while "  " in pred:
         pred = pred.replace("  ", " ")
+    if pred.startswith(label_c) or pred.startswith(fn_name):
+        return True
     for prefix in ans_prefixes:
         idx = pred.find(prefix)
         if idx == -1:
