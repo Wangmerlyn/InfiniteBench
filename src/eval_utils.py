@@ -10,7 +10,6 @@ from prompt import (
     kimi_templates,
     claude2_templates,
     yarn_mistral_templates,
-    llama31_templates,
 )
 
 
