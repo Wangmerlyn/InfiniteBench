@@ -10,6 +10,7 @@ from prompt import (
     kimi_templates,
     claude2_templates,
     yarn_mistral_templates,
+    llama31_templates,
 )
 
 
@@ -31,6 +32,9 @@ DATA_NAME_TO_PATH = {
     # Code tasks
     "code_run": "code_run.jsonl",
     "code_debug": "code_debug.jsonl",
+    # for llama3.1 reproducibility
+    "longbook_qa_eng_llama": "longbook_qa_eng_llama.jsonl",
+    "longbook_choice_eng_llama": "longbook_choice_eng.jsonl",
 }
 
 DATA_NAME_TO_MAX_NEW_TOKENS = {
@@ -46,6 +50,8 @@ DATA_NAME_TO_MAX_NEW_TOKENS = {
     "math_calc": 30000,
     "code_run": 5,
     "code_debug": 5,
+    "longbook_qa_eng_llama": 20,
+    "longbook_choice_eng_llama": 20,
 }
 
 MODEL_TO_PROMPT_TEMPLATE = {
@@ -56,6 +62,7 @@ MODEL_TO_PROMPT_TEMPLATE = {
     "yi-6b-200k": yarn_mistral_templates,
     "yi-34b-200k": yarn_mistral_templates,
     "chatglm3": yarn_mistral_templates,
+    "llama31_it": llama31_templates,
 }
 
 
