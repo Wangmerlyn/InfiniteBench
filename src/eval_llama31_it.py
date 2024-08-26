@@ -58,7 +58,7 @@ def normal_generate(
     """
     with torch.no_grad():
         # 将输入文本进行编码并转移到模型设备
-        inputs = tok([text for text in texts], return_tensors="pt", add_special_tokens=True)
+        inputs = tok([text for text in texts], return_tensors="pt", add_special_tokens=False)
         # NOTE use true and no truncate for mc
         # inputs = inputs.to(model.device)  # type: ignore
         # input_ids: torch.Tensor = inputs.input_ids  # (b, n)
