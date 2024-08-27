@@ -232,7 +232,7 @@ def create_prompt(eg: dict, data_name: str, model_name: str, data_dir) -> str:
 
 
 def get_answer(eg: dict, data_name: str):
-    if data_name in ["code_debug", "longbook_choice_eng"]:
+    if data_name in ["code_debug", "longbook_choice_eng", "longbook_choice_eng_llama"]:
         OPTIONS = "ABCD"
         if isinstance(eg["answer"], str):
             ret = [eg["answer"], OPTIONS[eg['options'].index(eg["answer"])]]
