@@ -370,6 +370,7 @@ def get_score_one(
         # Math
         "math_find": get_score_one_math_find,
         "math_calc": get_score_one_math_calc,
+        "longbook_choice_eng_llama": get_score_one_longbook_choice_eng,
     }
     assert task_name in NAME_TO_SCORE_GETTER, f"Invalid task name: {task_name}"
     score = NAME_TO_SCORE_GETTER[task_name](pred, label, model_name)

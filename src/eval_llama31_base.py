@@ -332,8 +332,8 @@ if __name__ == "__main__":
 
     from datasets import load_dataset
     data = load_dataset(
-    "meta-llama/Meta-Llama-3.1-8B-evals",
-    name="Meta-Llama-3.1-8B-evals__infinite_bench__details",
+    "meta-llama/Meta-Llama-3.1-8B-Instruct-evals",
+    name="Meta-Llama-3.1-8B-Instruct-evals__infinite_bench__details",
     split = "latest",
     token=os.getenv("HF_TOKEN"),
     )
@@ -359,6 +359,7 @@ if __name__ == "__main__":
     for i in range(args.start_idx, args.stop_idx):
         eg = examples[i]
         input_text = sorted_filtered_data[i]["input_final_prompts"][0]
+        input_text = input_text.replace("<|start_header_id|>user<|end_header_id|>","Read the book and answer the question").replace("<|eot_id|><|start_header_id|>assistant<|end_header_id|>", "\n\nThe letter of the correct answer is")
         print(f"====== Example {i} ======")
         pred = get_pred(
             model, tok, input_text, max_tokens=max_tokens, verbose=args.verbose
