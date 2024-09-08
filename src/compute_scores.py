@@ -446,7 +446,7 @@ if __name__ == "__main__":
     else:
         tasks = [args.task]
     for task in tasks:
-        result_dir = Path("/mnt/models/siyuan/inf_bench_exp/InfiniteBench/results", args.model_name)
+        result_dir = Path(args.output_dir, args.model_name)
         preds_path = result_dir / f"preds_{task}.jsonl"
         assert preds_path.exists(), f"Predictions not found in: {preds_path}"
         compute_scores(preds_path, task, args.model_name)
