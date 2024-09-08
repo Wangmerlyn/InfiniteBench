@@ -10,3 +10,4 @@ evaluate==0.4.1
 # gzip
 xopen
 jieba
+rouge_score
