@@ -11,3 +11,4 @@ evaluate==0.4.1
 xopen
 jieba
 rouge_score
+numpy==1.23.5
