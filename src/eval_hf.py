@@ -276,6 +276,8 @@ if __name__ == "__main__":
         pred = get_pred(
             model, tok, input_text, max_tokens=max_tokens, verbose=args.verbose
         )
+        # clear cuda cache and all garbage
+        torch.cuda.empty_cache()
         if args.verbose:
             print(pred)
         preds.append(
