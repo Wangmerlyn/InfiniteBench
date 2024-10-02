@@ -229,7 +229,14 @@ def get_score_one_math_find(pred, label, model_name: str) -> bool:
         if first_num is None:
             return False
         first_num = first_num.group(0).strip()
-        return int(first_num) == label
+        try:
+            num = int(first_num)
+            return int(first_num) == label
+        except ValueError:
+            num = float(first_num)
+            return float(first_num) == label
+        except:
+            return False
     elif isinstance(label, float):
         # Find first float or int
         first_float = re.search(r"\d+\.\d+|\d+", pred)
