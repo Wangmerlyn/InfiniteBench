@@ -219,7 +219,7 @@ def load_model(
 ) -> Tuple[MistralForCausalLM, AutoTokenizer]:
     print("Loading tokenizer")
     from transformers import AutoModelForCausalLM
-    tok = AutoTokenizer.from_pretrained(model_name)
+    tok = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     tok.pad_token = tok.eos_token
     print("Loading model")
     start_time = time.time()
