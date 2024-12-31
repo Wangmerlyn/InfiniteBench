@@ -226,7 +226,7 @@ def load_model(
     # model = MistralForCausalLM.from_pretrained(
     #     model_name, device_map="auto", torch_dtype=torch.bfloat16
     # )
-    model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map='auto', use_flash_attention_2=True, torch_dtype=torch.bfloat16,)
+    model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True, device_map='auto', attn_implementation="flash_attention_2", torch_dtype=torch.bfloat16,)
     model.eval()
     print("Time taken:", round(time.time() - start_time))
     return model, tok  # type: ignore
